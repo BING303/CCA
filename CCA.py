@@ -162,7 +162,7 @@ def evaluate_test(model, dataset, args, sess, cxtdict, cxtsize,embedding_size, n
             valid_neg_cand = list(candidate[candidate[0] == u].values[0][1:])   
             for t in valid_neg_cand:
                 item_idx.append(t)
-                testitemscxt.append(cxtdict[(u,valid[u][0])])
+                testitemscxt.append(cxtdict[(u,test_item)])
                 testitemsfeat.append(itemFeat[t])
 
             seq = np.pad(t_seq,(args.maxlen-len(t_seq),0),'constant')
@@ -833,7 +833,7 @@ class Model():
                                                 num_heads=args.num_heads,
                                                 dropout_rate=args.dropout_rate,
                                                 is_training=self.is_training,
-                                                causality=True,
+                                                causality=False,
                                                 scope="self_attention")
 
                 # Feed forward
