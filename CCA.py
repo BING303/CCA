@@ -833,7 +833,7 @@ class Model():
                                                 num_heads=args.num_heads,
                                                 dropout_rate=args.dropout_rate,
                                                 is_training=self.is_training,
-                                                causality=False,
+                                                causality=True,
                                                 scope="self_attention")
 
                 # Feed forward
